@@ -8,7 +8,7 @@ http.createServer((req, res) => {
   try { pathname = decodeURIComponent(new URL(req.url, 'http://localhost').pathname); }
   catch { res.writeHead(400); return res.end('Bad request'); }
   const file = path.resolve(root, '.' + (pathname === '/' ? '/index.html' : pathname));
-  if (!file.startsWith(root + path.sep) || !['index.html', 'styles.css', 'script.js', path.join('assets', 'logo.png'), path.join('assets', 'app-dashboard.png'), path.join('assets', 'app-device.png')].includes(path.relative(root, file))) {
+  if (!file.startsWith(root + path.sep) || !['index.html', 'styles.css', 'script.js', path.join('assets', 'hardware-studio.png'), path.join('assets', 'logo.png'), path.join('assets', 'app-dashboard.png'), path.join('assets', 'app-device.png')].includes(path.relative(root, file))) {
     res.writeHead(404); return res.end('Not found');
   }
   fs.readFile(file, (error, data) => {
